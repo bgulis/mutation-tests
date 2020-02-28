@@ -36,4 +36,27 @@ class WitcherServiceTest {
 
         assertThat(result).isTrue();
     }
+
+    @Test
+    void shouldReturnTrueWhenCoinSatisfiesWitcherWithMinAcceptableValueAndFitsIntoPouch() {
+        boolean result = witcherService.toss(new Coin(10, 5));
+
+        assertThat(result).isTrue();
+    }
+
+    @Test
+    void shouldReturnTrueWhenCoinSatisfiesWitcherAndFitsPouchWithMaxAcceptableSize() {
+        boolean result = witcherService.toss(new Coin(15, 10));
+
+        assertThat(result).isTrue();
+    }
+
+    @Test
+    void shouldReturnFalseWhenThereIsNoMoreSpaceForSecondCoin() {
+        witcherService.toss(new Coin(15, 10));
+
+        boolean result = witcherService.toss(new Coin(15, 1));
+
+        assertThat(result).isFalse();
+    }
 }
