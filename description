@@ -1,0 +1,9 @@
+Stwórz projekt z logiką biznesową, która będzie umożliwiać rezerwację miejsc w pociągu.
+Sygnatura metody:
+
+reserveSeats(count)
+
+ASSUMPTIONS:
+1. count < 1    => EXCEPTION
+2. total > max  => FALSE
+3. else         => TRUE
